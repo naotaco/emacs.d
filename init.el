@@ -72,3 +72,8 @@
 	    (indent-tabs-mode nil)
 	    )
 	  )
+
+;; git
+(el-get-bundle magit)
+(require 'magit)
+
