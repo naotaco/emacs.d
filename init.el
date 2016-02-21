@@ -77,3 +77,5 @@
 (el-get-bundle magit)
 (require 'magit)
 
+;; markdown
+(el-get-bundle markdown-mode)
