@@ -1,3 +1,5 @@
+(setq inhibit-startup-screen t)
+
 ;; load el-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (require 'el-get)
@@ -58,8 +60,7 @@
 
    ))
 
-;; perl5
-(el-get-bundle perl-completion)
+
 
 ;; C/C++
 (require 'cc-mode)
@@ -149,4 +150,12 @@
 ;; 	     :ensure t)
 
 
+(el-get-bundle 'powerline)
+(require 'powerline)
+(powerline-default-theme)
 
+
+(load-theme 'deeper-blue)
+
+(set-face-attribute 'default nil :height 160)
+>>>>>>> update for desktop env
