@@ -159,6 +159,6 @@
 
 (load-theme 'deeper-blue)
 
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 130)
 
 
