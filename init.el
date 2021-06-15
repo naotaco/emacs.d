@@ -154,8 +154,11 @@
 (require 'powerline)
 (powerline-default-theme)
 
+(set-face-attribute 'default nil :font "DejaVu Sans Mono Book"  )
+(set-frame-font "DejaVu Sans Mono Book" nil t)
 
 (load-theme 'deeper-blue)
 
 (set-face-attribute 'default nil :height 160)
->>>>>>> update for desktop env
+
+
