@@ -1,11 +1,11 @@
 ;; load el-get
-(add-to-list 'load-path "~/.emacs.d/el-get")
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (require 'el-get)
 
 (el-get-bundle cl-lib)
 (el-get-bundle auto-complete)
 (el-get-bundle anything)
-(el-get-bundle perl6-mode)
+;; (el-get-bundle perl6-mode)
 (el-get-bundle go-mode)
 (add-hook 'before-save-hook 'gofmt-before-save)
 
@@ -91,8 +91,8 @@
 ;; yaml
 (el-get-bundle 'yaml-mode)
 
-(el-get-bundle magit)
-(require 'magit)
+;; (el-get-bundle magit)
+;; (require 'magit)
 
 ;; md
 (el-get-bundle jrblevin/markdown-mode)
@@ -116,3 +116,37 @@
   (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
   (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
   )
+
+
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #rust
+
+(el-get-bundle rust-mode)
+(el-get-bundle lsp-mode
+  (add-hook 'rust-mode 'lsp-mode))
+(el-get-bundle lsp-ui)
+(el-get-bundle cargo
+  (add-hook 'rust-mode 'cargo-minor-mode)
+  )
+
+(add-hook 'before-save-hook
+          (lambda ()
+            (when (eq major-mode 'rust-mode)
+              (rust-format-buffer))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; #lsp
+
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :init (yas-global-mode)
+;;   :hook (rust-mode . lsp)
+;;   :bind ("C-c h" . lsp-describe-thing-at-point)
+;;   :custom (lsp-rust-server 'rust-analyzer))
+;; (use-package lsp-ui
+;; 	     :ensure t)
+
+
+
